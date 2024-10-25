@@ -1,0 +1,151 @@
+
+.pageContainer {
+  display: flex;
+  height: 100vh;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.2);
+
+}
+.container {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  
+  .card {
+    background: rgba(255, 255, 255, 1);
+    color: rgba(0, 0, 0, 1);
+    padding: 30px;
+    max-width: 560px;
+    width: 100%;
+    border-radius: 16px;
+  }
+  
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .title {
+    font-size: 16px;
+    font-weight: 700;
+    font-weight: bold;
+    color: rgba(0, 0, 0, 1);
+  }
+  
+  .closeIcon {
+    font-size: 16px;
+    cursor: pointer;
+    color: rgba(0, 0, 0, 1);
+  }
+  
+  .divider {
+    margin: 30px 0;
+    border: 1px solid rgba(232, 232, 232, 1)
+  }
+  
+  .form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .formContent{
+    margin-bottom: 20px;
+  }
+  
+  .label {
+    display: block;
+    margin-bottom: 16px;
+    font-size: 14px;
+    font-weight: 600;
+    color: rgba(0, 0, 0, 1);
+    ;
+  }
+  
+  .inputField {
+    width: 504px;
+    height: 44px;
+    padding: 10px 14px;
+    outline: none;
+    border: 1px solid rgba(176, 176, 176, 1);
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 1);
+    transition: 0.3s ease;
+  }
+  .inputField::placeholder {
+    color: rgba(140, 140, 140, 1);
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 24px;
+  }
+  .inputField:hover,
+  .inputField:focus {
+    border-color: rgba(11, 86, 163, 1);
+    /* border: 4px solid rgba(180, 205, 231, 1) */
+  }
+  .halfForm {
+    display: flex;
+    gap: 37px;
+  }
+  .halfInput {
+    width: 234px;
+    height: 44px;
+    padding: 10px, 14px;
+    border: 1px solid rgba(176, 176, 176, 1);
+    border-radius: 8px;
+    padding-left: 16px;
+    background: rgba(255, 255, 255, 1);
+    transition: 0.3s ease;
+  }
+  .halfInput:hover,
+  .halfInput:focus {
+    border-color: rgba(11, 86, 163, 1);
+  }
+  
+  .inputFieldAdd {
+    width: 504px;
+    height: 44px;
+    padding: 10px 14px;
+    outline: none;
+    border: 1px solid rgba(176, 176, 176, 1);
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 1);
+  }
+  .inputFieldAdd::placeholder {
+    color: rgba(140, 140, 140, 1);
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 24px;
+  }
+  .inputFieldAdd:hover,
+  .inputFieldAdd:focus {
+    border: 4px solid rgba(180, 205, 231, 1);
+  }
+  .radio {
+    display: flex;
+    gap: 10px;
+  }
+  .radioButton {
+    width: 20px;
+    height: 20px;
+    border: 0.82px solid rgba(176, 176, 176, 1);
+    cursor: pointer;
+  }
+  .submitButton {
+    display: block;
+    margin: auto;
+    align-items: center;
+    width: 150px;
+    padding: 8px 28px;
+    font-size: 14px;
+    font-weight: 600;
+    background: rgba(12, 95, 179, 1);
+    color: rgba(255, 255, 255, 1);
+    border-radius: 8px;
+    cursor: pointer
+  }
+
+  
