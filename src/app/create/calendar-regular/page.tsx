@@ -1,7 +1,7 @@
 "use client";
 import styles from "./styles.module.css";
-import Sidebar from "@/app/components/Sidebar/page";
-import RegularCalendarView from "@/app/components/regularCalendar/page";
+import Sidebar from "@/components/Sidebar/page";
+import RegularCalendarView from "@/components/regularCalendar/page";
 
 const CalendarPage = () => {
   return (

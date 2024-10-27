@@ -1,16 +1,28 @@
 "use client";
+
+import multiMonthPlugin from "@fullcalendar/multimonth";
 import FullCalendar from "@fullcalendar/react";
 import dayGridPlugin from "@fullcalendar/daygrid";
 import interactionPlugin from "@fullcalendar/interaction";
 import timeGridPlugin from "@fullcalendar/timegrid";
 import styles from "./styles.module.css";
-import React, { useState } from "react";
+import { forwardRef, useImperativeHandle, useRef, useState } from "react";
 import RegularAttendanceForm from "../attendance/regular-attendance-form/page";
+import FilterModal from "../FilterModal";
+import { get } from "http";
 
-const RegularCalendarView = () => {
+// const RegularCalendarView = () => ;
+const RegularCalendarView = forwardRef((props, ref) => {
+  const calendarRef = useRef<FullCalendar>(null);
   const [showForm, setShowForm] = useState(false);
   const [filterOpen, setFilterOpen] = useState(false);
+  const [shouldOpenMoreSettingsModal, setShouldOpenMoreSettingsModal] =
+    useState(false);
   const [viewBy, setViewBy] = useState("month");
+
+  useImperativeHandle(ref, () => ({
+    getApi: () => calendarRef.current && calendarRef.current.getApi(),
+  }));
 
   const toggleFilter = () => {
     setFilterOpen(!filterOpen);
@@ -22,17 +34,26 @@ const RegularCalendarView = () => {
   const handleAddClick = () => {
     setShowForm(true);
   };
+
   return (
-    <div className={styles.pageContainer}>
+    <div className={styles.pageContainer} data-testid="calendar">
       <div className={styles.mainContent}>
         <div className={styles.calendar}>
           <FullCalendar
-            plugins={[dayGridPlugin, interactionPlugin, timeGridPlugin]}
+            plugins={[
+              dayGridPlugin,
+              multiMonthPlugin,
+              interactionPlugin,
+              timeGridPlugin,
+            ]}
             headerToolbar={{
-              left: "today prev,next",
-              center: "title",
-              right: "timeGridDay,timeGridWeek,dayGridMonth addButton",
+              left: "today prev,next,title",
+              // center: "title",
+              right: "addButton filterButton",
             }}
+            ref={calendarRef}
+            titleFormat={{ year: "numeric", month: "long" }}
+            themeSystem="bootstrap5"
             initialView={"dayGridMonth"}
             nowIndicator={true}
             editable={true}
@@ -67,7 +88,14 @@ const RegularCalendarView = () => {
             customButtons={{
               addButton: {
                 text: "Add",
+
                 click: toggleFilter,
+              },
+              filterButton: {
+                text: "Filter",
+                // icon: "funnel-fill",
+                click: () =>
+                  setShouldOpenMoreSettingsModal(!shouldOpenMoreSettingsModal),
               },
             }}
           />
@@ -77,8 +105,19 @@ const RegularCalendarView = () => {
             <RegularAttendanceForm />
           </div>
         )}
+
+        {shouldOpenMoreSettingsModal && (
+          <section
+            className={`${styles.filterModal} w-[50%] mx-auto`}
+            data-testid="filter-modal-container"
+          >
+            <FilterModal calendarRef={calendarRef} />
+          </section>
+        )}
       </div>
     </div>
   );
-};
+});
+
+RegularCalendarView.displayName = "RegularCalendarView";
 export default RegularCalendarView;

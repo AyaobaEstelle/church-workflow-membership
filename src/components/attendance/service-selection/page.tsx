@@ -1,7 +1,7 @@
 import React from "react";
 import Image from "next/image";
 import styles from "./styles.module.css";
-import InactiveSidebar from "@/app/components/InactiveSidebar/page";
+import InactiveSidebar from "@/components/InactiveSidebar/page";
 
 const ServiceSelection = () => {
   return (

@@ -1,7 +1,7 @@
 "use client";
 import React, { useState } from "react";
 import styles from "./form.module.css";
-import InactiveSidebar from "@/app/components/InactiveSidebar/page";
+import InactiveSidebar from "@/components/InactiveSidebar/page";
 
 const SpecialServiceForm = () => {
   const [location, setLocation] = useState("");

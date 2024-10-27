@@ -1,0 +1,72 @@
+@use "sass:math";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  background: rgba(230, 230, 230, 0.5);
+}
+ul li {
+  color: rgba(29, 31, 46, 0.8);
+  font-size: 14px;
+  font-weight: 700;
+  display: block;
+  padding: 3px;
+}
+ul li:hover {
+  background-color: rgba(176, 176, 176, 1);
+  border-radius: 20px;
+}
+
+.sidebar-footer {
+  color: rgba(29, 31, 46, 0.8);
+  font-size: 14px;
+  font-weight: 700;
+}
+.sidebar-footer p {
+  color: rgba(20, 20, 43, 1);
+}
+hr {
+  border: 1px solid rgba(230, 230, 230, 1);
+}
+
+/* fullcalendar config */
+
+@mixin customized_fullcalendar_button($type: button) {
+  @apply bg-transparent  cursor-pointer hover:scale-105 active:scale-95 focus:shadow-none transition-all  font-semibold text-xs capitalize    !important;
+
+  @if $type == button {
+    @apply rounded-lg text-[#6B6B6B] hover:bg-gray-100  px-7 py-2 !important;
+  }
+  @if $type == icon {
+    @apply border-0  flex items-center justify-center  !important;
+    & .fc-icon {
+      @apply text-[#6B6B6B] text-3xl block !important;
+    }
+  }
+}
+
+.fc-header-toolbar .fc-toolbar-chunk {
+  &,
+  & div {
+    @apply flex items-center  !important;
+  }
+
+  .fc-button {
+    &.fc-today-button,
+    &.fc-filterButton-button,
+    &.fc-addButton-button {
+      @include customized_fullcalendar_button($type: button);
+    }
+    &.fc-prev-button,
+    &.fc-next-button {
+      @include customized_fullcalendar_button($type: icon);
+    }
+  }
+
+  h2 {
+    @apply ml-8 text-[1.25rem] !important;
+  }
+}
+
+/* fullcalendar config */
