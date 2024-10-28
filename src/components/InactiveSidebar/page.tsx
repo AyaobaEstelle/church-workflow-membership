@@ -1,20 +1,16 @@
 "use client";
 import Image from "next/image";
 import { useState } from "react";
-import { useRouter } from "next/navigation";
 import styles from "./styles.module.css";
-
-const HomePage = () => {
+const InactiveSidebar = () => {
   const [headerText, setHeaderText] = useState("Attendance");
 
   const handleSidebarClick = (text: string) => {
     setHeaderText(text);
   };
-  const router = useRouter();
-
   return (
-    <div className={styles.container}>
-      <div className="w-64 h-screen bg-white flex flex-col justify-between">
+    <div className={styles.background}>
+      <div className="w-64 h-screen bg-gray-300 flex flex-col justify-between">
         <div className="flex flex-col">
           <div className="p-4">
             <Image
@@ -38,6 +34,7 @@ const HomePage = () => {
                 <span>
                   <a
                     href="#"
+                    className="cursor-not-allowed"
                     onClick={() => handleSidebarClick("Notifications")}
                   >
                     Notifications
@@ -53,7 +50,11 @@ const HomePage = () => {
                   className="h-auto"
                 />
                 <span>
-                  <a href="#" onClick={() => handleSidebarClick("Settings")}>
+                  <a
+                    href="#"
+                    className="cursor-not-allowed"
+                    onClick={() => handleSidebarClick("Settings")}
+                  >
                     Settings
                   </a>
                 </span>
@@ -68,7 +69,11 @@ const HomePage = () => {
                   className="h-auto"
                 />
                 <span>
-                  <a href="#" onClick={() => handleSidebarClick("Dashboard")}>
+                  <a
+                    href="#"
+                    className="cursor-not-allowed"
+                    onClick={() => handleSidebarClick("Dashboard")}
+                  >
                     Dashboard
                   </a>
                 </span>
@@ -82,7 +87,11 @@ const HomePage = () => {
                   className="h-auto"
                 />
                 <span>
-                  <a href="#" onClick={() => handleSidebarClick("Branch")}>
+                  <a
+                    href="#"
+                    className="cursor-not-allowed"
+                    onClick={() => handleSidebarClick("Branch")}
+                  >
                     Branch
                   </a>
                 </span>
@@ -96,7 +105,11 @@ const HomePage = () => {
                   className="h-auto"
                 />
                 <span>
-                  <a href="#" onClick={() => handleSidebarClick("Offerings")}>
+                  <a
+                    href="#"
+                    className="cursor-not-allowed"
+                    onClick={() => handleSidebarClick("Offerings")}
+                  >
                     Offerings
                   </a>
                 </span>
@@ -110,7 +123,11 @@ const HomePage = () => {
                   className="h-auto"
                 />
                 <span>
-                  <a href="#" onClick={() => handleSidebarClick("Membership")}>
+                  <a
+                    href="#"
+                    className="cursor-not-allowed"
+                    onClick={() => handleSidebarClick("Membership")}
+                  >
                     Membership
                   </a>
                 </span>
@@ -124,12 +141,16 @@ const HomePage = () => {
                   className="h-auto"
                 />
                 <span>
-                  <a href="#" onClick={() => handleSidebarClick("Attendance")}>
+                  <a
+                    href="#"
+                    className="cursor-not-allowed"
+                    onClick={() => handleSidebarClick("Attendance")}
+                  >
                     Attendance
                   </a>
                 </span>
               </li>
-              <li className="flex items-center space-x-4 mb-4">
+              <li className="flex items-center space-x-4 mb-4 cursor-not-allowed">
                 <Image
                   src="/images/salary.png"
                   alt="church logo"
@@ -140,6 +161,7 @@ const HomePage = () => {
                 <span>
                   <a
                     href="#"
+                    className="cursor-not-allowed"
                     onClick={() => handleSidebarClick("Staff salary")}
                   >
                     Staff salary
@@ -155,7 +177,11 @@ const HomePage = () => {
                   className="h-auto"
                 />
                 <span>
-                  <a href="#" onClick={() => handleSidebarClick("Report")}>
+                  <a
+                    href="#"
+                    className="cursor-not-allowed"
+                    onClick={() => handleSidebarClick("Report")}
+                  >
                     Report
                   </a>
                 </span>
@@ -169,7 +195,11 @@ const HomePage = () => {
                   className="h-auto"
                 />
                 <span>
-                  <a href="#" onClick={() => handleSidebarClick("Request")}>
+                  <a
+                    href="#"
+                    className="cursor-not-allowed"
+                    onClick={() => handleSidebarClick("Request")}
+                  >
                     Request
                   </a>
                 </span>
@@ -183,7 +213,11 @@ const HomePage = () => {
                   className="h-auto"
                 />
                 <span>
-                  <a href="#" onClick={() => handleSidebarClick("Event")}>
+                  <a
+                    href="#"
+                    className="cursor-not-allowed"
+                    onClick={() => handleSidebarClick("Event")}
+                  >
                     Event
                   </a>
                 </span>
@@ -200,7 +234,7 @@ const HomePage = () => {
               height={24}
               className="h-auto"
             />
-            <p>Abolarin Esther</p>
+            <p className="cursor-not-allowed">Abolarin Esther</p>
           </div>
           <div className="flex items-center space-x-4 mb-4">
             <Image
@@ -210,26 +244,7 @@ const HomePage = () => {
               height={24}
               className="h-auto"
             />
-            <button>Log out</button>
-          </div>
-        </div>
-      </div>
-      <div className={styles.main}>
-        <header className={styles.header}>
-          <h1>{headerText}</h1>
-        </header>
-        <div className={styles.contentContainer}>
-          <div className={styles.content}>
-            <p className={styles.mainText}>You do not have an event</p>
-            <button
-              className={styles.mainButton}
-              type="button"
-              onClick={() =>
-                router.push("/components/attendance/service-selection")
-              }
-            >
-              Create event
-            </button>
+            <button className="cursor-not-allowed">Log out</button>
           </div>
         </div>
       </div>
@@ -237,4 +252,4 @@ const HomePage = () => {
   );
 };
 
-export default HomePage;
+export default InactiveSidebar;
