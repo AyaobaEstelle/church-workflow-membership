@@ -45,6 +45,22 @@ hr {
     }
   }
 }
+.fc * {
+  @apply font-sans !important;
+  .fc-multimonth-title {
+    @apply hidden !important;
+  }
+  .fc-col-header-cell-cushion,
+  .fc-daygrid-day-number {
+    @apply text-gray-dark !text-sm font-normal uppercase !important;
+  }
+  .fc-scrollgrid-sync-inner {
+    @apply my-1 !important;
+  }
+  .fc-daygrid-day-number{
+    @apply  justify-between text-center w-full items-center !important;
+  }
+}
 
 .fc-header-toolbar .fc-toolbar-chunk {
   &,
@@ -61,7 +77,7 @@ hr {
     &.fc-next-button {
       @include customized_fullcalendar_button($type: icon);
     }
-    &.fc-filterButton-button{
+    &.fc-filterButton-button {
       @include customized_fullcalendar_button($type: icon);
       @apply border-2 px-1 py-1 border-[#6B6B6B] rounded-lg !important;
     }
