@@ -41,7 +41,7 @@ hr {
   @if $type == icon {
     @apply border-0  flex items-center justify-center  !important;
     & .fc-icon {
-      @apply text-[#6B6B6B] text-3xl block !important;
+      @apply text-[#6B6B6B] text-2xl block !important;
     }
   }
 }
@@ -54,12 +54,18 @@ hr {
 
   .fc-button {
     &.fc-today-button,
-    &.fc-filterButton-button,
     &.fc-addButton-button {
       @include customized_fullcalendar_button($type: button);
     }
     &.fc-prev-button,
     &.fc-next-button {
+      @include customized_fullcalendar_button($type: icon);
+    }
+    &.fc-filterButton-button{
+      @include customized_fullcalendar_button($type: icon);
+      @apply border-2 px-1 py-1 border-[#6B6B6B] rounded-lg !important;
+    }
+    &.fc-searchButton-button {
       @include customized_fullcalendar_button($type: icon);
     }
   }
