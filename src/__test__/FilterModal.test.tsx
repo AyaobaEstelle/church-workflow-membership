@@ -1,8 +1,8 @@
 import FullCalendar from "@fullcalendar/react";
-import { render, screen, waitFor } from "@testing-library/react";
+import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { createRef } from "react";
-import { describe, expect, test } from "vitest";
+import { expect, test } from "vitest";
 import RegularCalendarView from "../components/regularCalendar/page";
 
 test("Checks if the FilterModal Component renders when 'Filter' Button is clicked", async () => {
